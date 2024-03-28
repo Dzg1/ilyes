@@ -207,6 +207,9 @@ h1{
 
 /* Mode Mobile */
 @media (max-width: 900px) {
+    body{
+        font-size:0.8rem;
+    }
     .cards {
         grid-template-columns: repeat(2, 150px);
         grid-auto-rows: 150px;
@@ -232,7 +235,9 @@ h1{
      
         padding:10px;
     
-    
+    }
+    #theme{
+        gap:8px;
     }
 }
 
