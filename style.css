@@ -1,0 +1,370 @@
+/*** General ***/
+@font-face {
+    font-family: 'telegraf-ultra-bold';
+    src: url(./assets/fonts/PPTelegraf-UltraBold.otf);
+}
+@font-face {
+    font-family: 'inter';
+    src: url(./assets/fonts/Inter-Bold.ttf);
+}
+@font-face {
+    font-family: 'worksans';
+    src: url(./assets/fonts/WorkSans-VariableFont_wght.ttf);
+}
+
+:root {
+    --bg-color: #f5f5f7;
+    --negative-background:#1c1c1e;
+    --bg-color2: #ffffff;
+    --negative-text-color: #fff;
+    --text-color: #1d1d1f;
+    --dock-color: rgba(56, 56, 56, 0.282);
+    --font-logo: 'telegraf-ultra-bold';
+    --font-title: 'inter';
+    --font-txt: 'worksans';
+    --color1:#2AC49F;
+    --color2:#fff;
+    --color3:#191818;
+}
+
+/* Couleurs pour le mode sombre */
+[data-theme='dark'] {
+    --bg-color: #000000;
+    --negative-background:#f5f5f7;
+    --bg-color2: #1c1c1e;
+    --text-color: #fff;
+    --negative-text-color: #1d1d1f;
+    --dock-color: #c0bebe48;
+
+}
+
+body {
+    background: var(--bg-color);
+    font-family: var(--font-txt);
+    color: var(--text-color);
+}
+.color1{
+    color: var(--color1);
+}
+.color2{
+    color: var(--color2);
+}
+.color3{
+    color: var(--color3);
+}
+/*** End General ***/
+
+/***header***/
+header{
+    background: linear-gradient(to bottom, var(--dock-color) 0%, transparent 100%);
+    height: 60px;
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.header-container{
+    height: 40px;
+    width: 95%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.logo{
+height: 51px;
+}
+.center-text-logo{
+    margin: 25px 0 0 0;
+}
+
+.logo-text{
+    font-family: var(--font-logo);
+    font-size: 20px;
+    line-height: 1;
+    padding: 3px ;
+    text-transform: uppercase;
+    
+}
+.logo-text2{
+color: var(--color1);
+}
+
+@media (max-width: 900px) {
+.center-text-logo{
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+}
+
+/***end header***/
+
+/*** Navigation ***/
+.dock-wrapper {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.dock {
+    display: flex;
+    background: var(--dock-color);
+    padding: 5px 5px;
+    border-radius: 30px;
+    width: auto;
+    margin: 10px;
+    padding: 15px;
+}
+
+.dock.animated .dock-icon {
+    transition: .1s;
+    transition-property: transform transform-origin;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -4px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--negative-background);
+}
+
+
+@media (min-width: 800px) {
+    .dock-icon:hover .tooltip {
+        display: flex;
+
+    }
+}
+
+/*** end navigation ***/
+/*** cards ***/
+
+/*traitement des media en fonciton du theme*/
+.media-dark {
+    display: none;
+}
+
+[data-theme='dark'] .media-light {
+    display: none;
+}
+
+[data-theme='dark'] .media-dark {
+    display: block;
+}
+
+
+h1{
+    font-family: var(--font-title);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+    gap: 20px;
+    margin: 20px 20px 100px 20px;
+    width: 860px;
+    margin: 90px auto 1100px;
+}
+.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+
+.media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+
+}
+
+/* Mode Tablette */
+@media (min-width: 600px) and (max-width: 1100px) {
+    .cards {
+        grid-template-columns: repeat(3, 200px);
+        width: 640px;
+        
+    }
+}
+
+/* Mode Mobile */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 150px);
+        grid-auto-rows: 150px;
+        width: 320px;
+
+    }
+
+    .square {
+        width: 150px;
+        height: 150px;
+    }
+
+    .rectangle {
+        width: 150px;
+        height: 320px;
+    }
+
+    .horizontal-rectangle {
+        height: 150px;
+        width: 320px;
+    }
+    #presentation {
+     
+        padding:10px;
+    
+    
+    }
+}
+
+#presentation {
+    overflow: hidden;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+
+} 
+/* Mode Mobile */
+@media (max-width: 900px) {
+
+    #presentation {
+     
+        padding:10px;
+    
+    
+    }
+}
+
+
+.settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    padding: 20px;
+}
+
+#theme-toggle {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    border: none;
+    background-color: #FFD700;
+    cursor: pointer;
+}
+
+#theme-toggle::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 38px;
+    background: var(--bg-color2);
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    transform: translate(var(--translate-after, 0%, 0%));
+}
+
+.spin {
+    animation: spin .6s linear .4s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}
+
+#map {
+    position: relative;
+}
+
+#map .plane {
+    position: absolute;
+    bottom: 20px;
+    left: -25px;
+    height: 60px;
+    transform: rotate(45deg);
+    transform-origin: top right;
+    animation: fly 50s linear infinite;
+}
+
+#map .plane-shadow {
+    transform: translatey(50px) rotate(45deg);
+}
+
+@keyframes fly {
+
+    0%,
+    40% {
+        bottom: 20px;
+        left: -25px;
+    }
+
+    40%,
+    100% {
+        bottom: 300px;
+        left: 240px;
+    }
+}
+
+
+.coins{
+    height: 60px;
+    width: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .7s;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.coins-face{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+}
+
+.back-face{
+    transform: rotateY(180deg); /* Oriente correctement la face arrière */
+}
+
+.rotated{
+    transform: rotateY(180deg);
+}
+
+/*** end cards ***/

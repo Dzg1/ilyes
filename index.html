@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset-meyer.css" />
+    <link rel="stylesheet" href="./component.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="./assets/images/f.ico" type="image/x-icon" />
+    <title>Ilyès Fellous</title>
+</head>
+
+<body>
+    <header>
+       <div class="header-container">
+        <img class="logo media-light" src="./assets/images/logoL.png" alt="logo light">
+        <img class="logo media-dark" src="./assets/images/logoD.png" alt="logo dark">
+        <p class="center-text-logo">
+            <span class="logo-text logo-text1">Ilyès</span>
+            <span class="logo-text logo-text2">Fellous</span>
+        </p>
+        </div>
+    </header>
+    <main>
+        <section class="cards">
+            <div class="card square about all" id="pp">
+                <img class="media media-light" src="./assets/images/ppl.png" alt="photo de profil light" />
+                <img class="media media-dark" src="./assets/images/ppd.png" alt="photo de profil Dark" />
+            </div>
+
+            <div class="card horizontal-rectangle about all" id="presentation">
+                <h1>Ilyès <span class="color1">Fellous</span></h1>
+                <p data-en="Full stack web developer specialized in Symfony, I am as committed to designing robust and functional sites as I am to refining their aesthetics. For me, a neat design and an optimal user experience are just as crucial as technicality."
+                    data-fr="Développeur web full stack spécialisé dans Symfony, je m'attache autant à concevoir des sites robustes et fonctionnels qu'à peaufiner leur esthétique. Pour moi, un design soigné et une expérience utilisateur optimale sont aussi cruciaux que la technicité.">
+                    Développeur web full stack spécialisé dans Symfony, je m'attache
+                    autant à concevoir des sites robustes et fonctionnels qu'à peaufiner
+                    leur esthétique. Pour moi, un design soigné et une expérience
+                    utilisateur optimale sont aussi cruciaux que la technicité.
+                </p>
+            </div>
+
+            <div class="card square contact all" id="gmail">
+                    <a href="mailto:fellousilyes01@gmail.com" target="_blank">
+                    <img class="media media-light" src="./assets/images/gmailW.png" alt="gmail light" />
+                    <img class="media media-dark" src="./assets/images/gmailD.png" alt="gmail Dark" />
+                </a>
+                </div>
+                <div class="card square project all" id="github">
+                    <a href="https://www.github.com/dzg1/" target="_blank">
+                    <img class="media" src="./assets/images/github.png" alt="Github" />
+                </a>
+                </div>
+                <div class="card square contact all" id="linkedin">
+                    <a href="https://www.linkedin.com/in/fellousilyes01/" target="_blank">
+                    <img class="media media-light" src="./assets/images/linkedinW.png" alt="LinkedIn light" />
+                    <img class="media media-dark" src="./assets/images/linkedinD.png" alt="LinkedIn Dark" />
+                </a>
+                </div>
+                <div class="card rectangle about all" id="map">
+                    <a href="https://www.google.com/maps/@45.784147,4.7697681,12z?hl=fr&entry=ttu" target="_blank">
+                    <img class="media media-light" src="./assets/images/mapL.png" alt="map light" />
+                    <img class="media media-dark" src="./assets/images/mapD.png" alt="map Dark" />
+                    <img class="plane" src="./assets/images/plane.png" alt="plane" />
+                    <img class="plane plane-shadow" src="./assets/images/planeshadow.png" alt="plane shadow" />
+                </a>
+                </div>
+
+            <div class="card horizontal-rectangle about all" >
+                <video class="media media-light" autoplay loop muted playsinline>
+                    <source src="./assets/images/white-Ilyès-Fellous.mp4" type="video/mp4" />
+                </video>
+                <video class="media media-dark" autoplay loop muted playsinline>
+                    <source src="./assets/images/Ilyès-Fellous.mp4" type="video/mp4" />
+                </video>
+            </div> 
+            <div class="card settings all">
+                <h3 id="theme-texte1" data-en="A click on the sun..." data-fr="Un clic sur le soleil...">
+                    Un clic sur le soleil...
+                </h3>
+                <button aria-label="Change theme" id="theme-toggle"></button>
+                <h3 id="theme-texte2" data-en="...unveils the night." data-fr="...la nuit se déploie.">
+                    ...la nuit se déploie.
+                </h3>
+            </div>
+
+            <div class="card settings all">
+                <h3 id="language-texte1" data-en="Il est l'or, monseignor..." data-fr="To click or not to click...">
+                    To click or not to click...
+                </h3>
+
+                <div aria-label="Change language" class="coins" id="language-toggle">
+                    <img src="./assets/images/shakespeare.png" alt="image du crane de Yorik dans Hamlet" class="front-face media coins-face">
+                    <img src="./assets/images/moliere.png" alt="image de molière" class="back-face media coins-face">
+                </div>
+
+                <h3 id="language-texte2" data-en="... l'or d'user de la langue de Molière." data-fr="...to speak the tongue of Shakespeare.">
+                    ...to speak the tongue of Shakespeare.
+                </h3>
+            </div>
+        </section>
+        <nav class="dock-wrapper">
+            <ul class="dock">
+                <li class="dock-icon">
+                    <span class="tooltip" data-en="All" data-fr="Tout">Tout</span>
+                    <button class="filter-btn" data-filter="all" aria-label="Tout">
+                        <img src="./assets/images/tout.png" type="image/png" alt="Icone Tout" />
+                    </button>
+                </li>
+                <li class="dock-icon">
+                    <span class="tooltip" data-en="About Me" data-fr="A propos de moi">A propos de moi</span>
+                    <button class="filter-btn" data-filter="about" aria-label="A propos de moi">
+                        <img src="./assets/images/about.png" type="image/png" alt="Icone A propos de moi" />
+                    </button>
+                </li>
+                <li class="dock-icon">
+                    <span class="tooltip" data-en="Projects" data-fr="Projet">Projet</span>
+                    <button class="filter-btn" data-filter="project" aria-label="Projet">
+                        <img src="./assets/images/project.png" type="image/png" alt="Icone Projet" />
+                    </button>
+                </li>
+                <li class="dock-icon">
+                    <span class="tooltip" data-en="Contact" data-fr="Contact">Contact</span>
+                    <button class="filter-btn" data-filter="contact" aria-label="Contact">
+                        <img src="./assets/images/contact.png" type="image/png" alt="Icone Contact" />
+                    </button>
+                </li>
+                <li class="dock-icon">
+                    <span class="tooltip" data-en="Settings" data-fr="Règlage">Règlage</span>
+                    <button class="filter-btn" data-filter="settings"  aria-label="Règlage" >
+                        <img src="./assets/images/settings.png" type="image/png" alt="Icone Réglage" />
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </main>
+</body>
+
+</html>
