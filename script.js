@@ -42,6 +42,7 @@ themeToggleBtn.addEventListener("click", () => {
 const languageToggle = document.querySelector("#language-toggle");
 
 /*initialisation de langue en francais*/
+document.addEventListener('DOMContentLoaded', (event) => {
 languageToggle.dataset.language = "FR";
 
 languageToggle.addEventListener("click", function () {
@@ -49,11 +50,17 @@ languageToggle.addEventListener("click", function () {
   let newLanguage = currentLanguage === "EN" ? "FR" : "EN";
   this.dataset.language = newLanguage;
   languageToggle.classList.toggle("rotated");
-  let elements = document.querySelectorAll("[data-en], [data-fr]");
 
+  let elements = document.querySelectorAll("[data-en], [data-fr]");
   elements.forEach(function (element) {
     element.innerText = element.dataset[newLanguage.toLowerCase()];
   });
+
+  let imageElements = document.querySelectorAll("img[data-en-src], img[data-fr-src]");
+  imageElements.forEach((img) => {
+    img.src = img.dataset[`${newLanguage.toLowerCase()}-src`];
+  });
+});
 });
 
 /*** End language toogle ***/
