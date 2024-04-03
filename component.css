@@ -57,10 +57,10 @@ overflow: hidden;
     cursor: pointer;
 
 }
-.dock-icon span {
+.dock-icon .tooltip {
 position: absolute;
 top: -20px;
-display: none;
+display:  none;
 justify-content: center;
 align-items: center;
 font-family: var(--font-txt);

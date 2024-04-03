@@ -198,8 +198,10 @@ window.addEventListener("resize", handleResize);
 const filterBtn = document.querySelectorAll(".filter-btn");
 
 filterBtn.forEach((btn) => {
-  console.log('is clicked');
   btn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,behavior: 'smooth'
+    });
     let filter = this.dataset.filter;
     let cards = document.querySelectorAll(".card");
 

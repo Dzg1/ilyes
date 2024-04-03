@@ -18,7 +18,7 @@
     --bg-color2: #ffffff;
     --negative-text-color: #fff;
     --text-color: #1d1d1f;
-    --dock-color: rgba(56, 56, 56, 0.282);
+    --dock-color: rgba(56, 56, 56, 0.394);
     --font-logo: 'telegraf-ultra-bold';
     --font-title: 'inter';
     --font-txt: 'worksans';
@@ -140,13 +140,26 @@ color: var(--color1);
     border-right: 5px solid transparent;
     border-top: 5px solid var(--negative-background);
 }
+.dock-icon:hover  .tooltip{
+    display: flex;
+
+}
 
 
-@media (min-width: 800px) {
-    .dock-icon:hover .tooltip {
+@media (max-width: 800px) {
+    .dock-icon .tooltip {
         display: flex;
-
+        top: 75px;
+        background: transparent;
+        color: var(--text-color);
+        font-size: 0.6rem;
     }
+
+    .tooltip::after{
+        display: none;
+    }
+  
+    
 }
 
 /*** end navigation ***/
