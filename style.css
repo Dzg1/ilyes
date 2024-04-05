@@ -178,6 +178,24 @@ color: var(--color1);
     display: block;
 }
 
+/* Traitement des médias en fonction du langage */
+.media-en {
+    display: none;
+}
+
+[data-language='FR'] .media-en {
+    display: none;
+}
+
+[data-language='EN'] .media-fr {
+    display: none;
+}
+
+[data-language='EN'] .media-en {
+    display: block;
+}
+
+
 
 h1{
     font-family: var(--font-title);

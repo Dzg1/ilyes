@@ -38,32 +38,31 @@ themeToggleBtn.addEventListener("click", () => {
 });
 
 /***End Dark Mode***/
-/*** language toggle ***/
-const languageToggle = document.querySelector("#language-toggle");
+/*** Language Toggle ***/
+const languageToggleBtn = document.querySelector("#language-toggle");
+const currentLanguage = localStorage.getItem("language") || "FR"; 
+setLanguage(currentLanguage);
 
-/*initialisation de langue en francais*/
-document.addEventListener('DOMContentLoaded', (event) => {
-languageToggle.dataset.language = "FR";
+languageToggleBtn.addEventListener("click", () => {
+  let language = languageToggleBtn.dataset.language;
+  let newLanguage = language === "EN" ? "FR" : "EN";
 
-languageToggle.addEventListener("click", function () {
-  let currentLanguage = this.dataset.language;
-  let newLanguage = currentLanguage === "EN" ? "FR" : "EN";
-  this.dataset.language = newLanguage;
-  languageToggle.classList.toggle("rotated");
-
-  let elements = document.querySelectorAll("[data-en], [data-fr]");
-  elements.forEach(function (element) {
-    element.innerText = element.dataset[newLanguage.toLowerCase()];
-  });
-
-  let imageElements = document.querySelectorAll("img[data-en-src], img[data-fr-src]");
-  imageElements.forEach((img) => {
-    img.src = img.dataset[`${newLanguage.toLowerCase()}-src`];
-  });
-});
+  setLanguage(newLanguage);
 });
 
-/*** End language toogle ***/
+function setLanguage(language) {
+  document.documentElement.setAttribute("data-language", language);
+  languageToggleBtn.dataset.language = language;
+  localStorage.setItem("language", language);
+  languageToggleBtn.classList.toggle("rotated", language === "EN");
+
+  document.querySelectorAll("[data-en], [data-fr]").forEach((element) => {
+    element.innerText = element.dataset[language.toLowerCase()];
+  });
+}
+/*** End Language Toggle ***/
+
+
 
 /*** Navigation  ***/
 let instanceDock = null;
