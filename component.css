@@ -1,7 +1,7 @@
 /*** card ***/
 
 .card{
-
+position: relative;
 
     background: var(--bg-color2);
     border-radius:15px ;
@@ -33,6 +33,30 @@ overflow: hidden;
     height: 200px;
     width: 420px;
   }
+
+  figcaption {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--negative-text-color);
+    padding: 0.75rem;
+    background-color: var(--dock-color);
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+    z-index: 100;
+}
+
+
+
+.active {
+    transform: translateX(0);
+}
 
 /*** End Card ***/
 /*** Navigation ***/

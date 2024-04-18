@@ -40,7 +40,7 @@ themeToggleBtn.addEventListener("click", () => {
 /***End Dark Mode***/
 /*** Language Toggle ***/
 const languageToggleBtn = document.querySelector("#language-toggle");
-const currentLanguage = localStorage.getItem("language") || "FR"; 
+const currentLanguage = localStorage.getItem("language") || "FR";
 setLanguage(currentLanguage);
 
 languageToggleBtn.addEventListener("click", () => {
@@ -199,7 +199,7 @@ const filterBtn = document.querySelectorAll(".filter-btn");
 filterBtn.forEach((btn) => {
   btn.addEventListener("click", function () {
     window.scrollTo({
-      top: 0,behavior: 'smooth'
+      top: 0, behavior: 'smooth'
     });
     let filter = this.dataset.filter;
     let cards = document.querySelectorAll(".card");
@@ -215,3 +215,30 @@ filterBtn.forEach((btn) => {
   });
 });
 /*** End cards selection ***/
+
+/*** figcaption ***/
+const figures = document.querySelectorAll('figure');
+
+
+figures.forEach(figure => {
+  figure.addEventListener('mouseenter', function () {
+    const caption = this.querySelector('figcaption');
+    if (caption) {
+
+      caption.classList.add('active');
+
+      setTimeout(() => {
+        caption.classList.remove('active');
+      }, 1000);
+    }
+  
+  });
+  figure.addEventListener('mouseleave', function () {
+    const caption = this.querySelector('figcaption');
+    if (caption && caption.classList.contains('active')) {
+      caption.classList.remove('active');
+    }
+  });
+});
+/*** End figcaption ***/
+
