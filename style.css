@@ -275,14 +275,12 @@ h1{
 
 #presentation {
     overflow: hidden;
-    padding:20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-
-
+padding: 20px;
 } 
+
+#presentation figcaption{
+  bottom: 0px;
+}
 /* Mode Mobile */
 @media (max-width: 900px) {
 
