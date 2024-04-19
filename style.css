@@ -34,7 +34,7 @@
     --bg-color2: #1c1c1e;
     --text-color: #fff;
     --negative-text-color: #1d1d1f;
-    --dock-color: #c0bebe48;
+    --dock-color: #c0bebe7d;
 
 }
 
@@ -64,7 +64,7 @@ header{
     width: 100%;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: 1000;
 }
 .header-container{
     height: 40px;
