@@ -60,7 +60,7 @@ overflow: hidden;
     transform: translateX(0);
     font-size: 1rem;
     padding: 5px 10px;
-    height: 25px;
+    height: auto;
     bottom: 0;
   }
  
