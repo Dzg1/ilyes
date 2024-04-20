@@ -15,6 +15,25 @@ overflow: hidden;
 
 }
 
+.more{
+  content:"?";
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  height: 20px;
+  width: 20px;
+  color: var(--text-color);
+  font-weight: bold;
+  border: 2px solid var(--text-color);
+  background: var(--color1);
+  z-index:10000;
+  cursor:help;
+}
+
 
 .square {
     width: 200px;

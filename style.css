@@ -302,7 +302,13 @@ padding: 20px;
     text-align: center;
     padding: 20px;
 }
-
+.container-theme{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+}
 #theme-toggle {
     position: relative;
     height: 40px;

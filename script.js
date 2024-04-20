@@ -1,43 +1,4 @@
-/***Dark Mode***/
-const themeToggleBtn = document.querySelector("#theme-toggle");
-const themeToggleTxt1 = document.querySelector("#theme-texte1");
-const themeToggleTxt2 = document.querySelector("#theme-texte2");
-const currentTheme = localStorage.getItem("theme");
 
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
-
-  if (currentTheme === "dark") {
-    themeToggleTxt1.textContent = "Un clic sur la lune...";
-    themeToggleTxt2.textContent = "...et le jour s'éveille.";
-  }
-}
-
-themeToggleBtn.addEventListener("click", () => {
-  let theme = document.documentElement.getAttribute("data-theme");
-
-  if (theme === "dark") {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-    themeToggleTxt1.textContent = "Un clic sur le soleil...";
-    themeToggleTxt2.textContent = "...la nuit se déploie.";
-    document.documentElement.style.setProperty("--translate-after", "0%, 0%");
-  } else {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-    themeToggleTxt1.textContent = "Un clic sur la lune... ";
-    themeToggleTxt2.textContent = "...et le jour s'éveille.";
-    document.documentElement.style.setProperty(
-      "--translate-after",
-      "-70%, 20%"
-    );
-    themeToggleBtn.classList.add("spin");
-    // Retirer la classe après l'animation pour ne pas répéter l'animation au prochain clic
-    setTimeout(() => themeToggleBtn.classList.remove("spin"), 1000);
-  }
-});
-
-/***End Dark Mode***/
 /*** Language Toggle ***/
 const languageToggleBtn = document.querySelector("#language-toggle");
 const currentLanguage = localStorage.getItem("language") || "FR";
@@ -58,11 +19,58 @@ function setLanguage(language) {
 
   document.querySelectorAll("[data-en], [data-fr]").forEach((element) => {
     element.innerText = element.dataset[language.toLowerCase()];
+
   });
 }
 /*** End Language Toggle ***/
 
+/***Dark Mode***/
+const themeToggleBtn = document.querySelector("#theme-toggle");
+const themeToggleTxt1Light = document.querySelector("#theme-texte1-light");
+const themeToggleTxt2Light = document.querySelector("#theme-texte2-light");
+const themeToggleTxt1Dark = document.querySelector("#theme-texte1-dark");
+const themeToggleTxt2Dark = document.querySelector("#theme-texte2-dark");
+const currentTheme = localStorage.getItem("theme");
+const themeCaptionDark = document.querySelector('#theme-caption-dark');
+const themeCaptionLight = document.querySelector('#theme-caption-light');
 
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme);
+
+  if (currentTheme === "dark") {
+    themeToggleTxt1Dark.textContent = "Un clic sur la lune...";
+    themeToggleTxt2Dark.textContent = "...et le jour s'éveille.";
+    themeCaptionDark.textContent = "Clair";
+  }
+}
+
+themeToggleBtn.addEventListener("click", () => {
+  let theme = document.documentElement.getAttribute("data-theme");
+
+  if (theme === "dark") {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+      themeToggleTxt1Dark.textContent = "Un clic sur le soleil...";
+      themeToggleTxt2Dark.textContent = "...la nuit se déploie.";
+      themeCaptionDark.textContent = "Sombre";
+    document.documentElement.style.setProperty("--translate-after", "0%, 0%");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+      themeToggleTxt1Light.textContent = "Un clic sur la lune... ";
+      themeToggleTxt2Light.textContent = "...et le jour s'éveille.";
+      themeCaptionLight.textContent = "Clair";
+    document.documentElement.style.setProperty(
+      "--translate-after",
+      "-70%, 20%"
+    );
+    themeToggleBtn.classList.add("spin");
+    // Retire la classe après l'animation pour ne pas répéter l'animation au prochain clic
+    setTimeout(() => themeToggleBtn.classList.remove("spin"), 1000);
+  }
+});
+
+/***End Dark Mode***/
 
 /*** Navigation  ***/
 let instanceDock = null;
@@ -217,26 +225,22 @@ filterBtn.forEach((btn) => {
 /*** End cards selection ***/
 
 /*** figcaption ***/
-const figures = document.querySelectorAll('figure');
+const moreButtons = document.querySelectorAll('.more');
 
+moreButtons.forEach(moreButton => {
+  // Ajouter un écouteur d'événement sur chaque bouton
+  moreButton.addEventListener('click', function () {
+    // Remonter au parent figure du bouton
+    const figure = this.closest('figure');
+    const caption = figure.querySelector('figcaption');
 
-figures.forEach(figure => {
-  figure.addEventListener('mouseenter', function () {
-    const caption = this.querySelector('figcaption');
     if (caption) {
+      caption.classList.toggle('active'); // Utilise toggle pour activer/désactiver
 
-      caption.classList.add('active');
-
+      // Si vous voulez retirer la classe 'active' après un délai
       setTimeout(() => {
         caption.classList.remove('active');
       }, 1000);
-    }
-  
-  });
-  figure.addEventListener('mouseleave', function () {
-    const caption = this.querySelector('figcaption');
-    if (caption && caption.classList.contains('active')) {
-      caption.classList.remove('active');
     }
   });
 });
