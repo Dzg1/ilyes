@@ -76,11 +76,7 @@ overflow: hidden;
 }
 @media (max-width: 900px) {
   figcaption{
-    transform: translateX(0);
     font-size: 1rem;
-    padding: 5px 10px;
-    height: auto;
-    bottom: 0;
   }
  
 
