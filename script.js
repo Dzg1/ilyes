@@ -1,4 +1,3 @@
-
 /*** Language Toggle ***/
 const languageToggleBtn = document.querySelector("#language-toggle");
 const currentLanguage = localStorage.getItem("language") || "FR";
@@ -36,12 +35,6 @@ const themeCaptionLight = document.querySelector('#theme-caption-light');
 
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
-
-  if (currentTheme === "dark") {
-    themeToggleTxt1Dark.textContent = "Un clic sur la lune...";
-    themeToggleTxt2Dark.textContent = "...et le jour s'éveille.";
-    themeCaptionDark.textContent = "Clair";
-  }
 }
 
 themeToggleBtn.addEventListener("click", () => {
@@ -50,16 +43,10 @@ themeToggleBtn.addEventListener("click", () => {
   if (theme === "dark") {
     document.documentElement.setAttribute("data-theme", "light");
     localStorage.setItem("theme", "light");
-      themeToggleTxt1Dark.textContent = "Un clic sur le soleil...";
-      themeToggleTxt2Dark.textContent = "...la nuit se déploie.";
-      themeCaptionDark.textContent = "Sombre";
     document.documentElement.style.setProperty("--translate-after", "0%, 0%");
   } else {
     document.documentElement.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
-      themeToggleTxt1Light.textContent = "Un clic sur la lune... ";
-      themeToggleTxt2Light.textContent = "...et le jour s'éveille.";
-      themeCaptionLight.textContent = "Clair";
     document.documentElement.style.setProperty(
       "--translate-after",
       "-70%, 20%"
